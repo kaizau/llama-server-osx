@@ -12,15 +12,15 @@ Download it from Releases and drag it into your Applications directory.
 
 Click the menu bar icon to create your configuration file (`~/.config/llamaserver/options.sh`). This defines the locations of your [llama.cpp server script](https://github.com/ggerganov/llama.cpp/tree/master/examples/server) and models, as well as a list of CLI flags.
 
-![](assets/screen-1.png)
+![](assets/screen-1.jpg)
 
 Use "Load model" to choose from a list of `*.guff` models from your configured directory:
 
-![](assets/screen-2.png)
+![](assets/screen-2.jpg)
 
 While a running `llama.cpp/server` process is detected, the menu will show the last 5 lines of server output. Click "Stop server" to unload the model:
 
-![](assets/screen-3.png)
+![](assets/screen-3.jpg)
 
 Due to a limitation of Platypus, the menu bar icon doesn't update in the background. You need to click the icon again to get fresh logs.
 
