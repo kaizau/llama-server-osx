@@ -1,26 +1,26 @@
 # Llama Server
 
-![](assets/icon.png)
+<img src="assets/icon.png" width="250"/>
 
-A Mac menu bar app for controlling llama.cpp server.
+A Mac menu bar app for controlling [llama.cpp server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server).
 
-This started as a bash script, which turned into a Mac Shortcut, which thanks to Platypus, has grown-up into an Real App. But in its heart, Llama Server is still just a humble bash script calling another bash script.
+This started as a bash script, which turned into a Mac Shortcut, which thanks to [Platypus](https://github.com/sveinbjornt/Platypus), has grown-up into an Real App. But in its heart, Llama Server is still just a humble bash script calling another bash script.
 
 ## Usage
 
 Download it from Releases and drag it into your Applications directory.
 
-Click the menu bar icon to create your configuration file (`~/.config/llamaserver/options.sh`). This defines the locations of your [llama.cpp server script](https://github.com/ggerganov/llama.cpp/tree/master/examples/server) and models, as well as a list of CLI flags.
+Click the menu bar icon to create your configuration file (`~/.config/llamaserver/options.sh`). This defines the locations of your [llama.cpp server script](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#quick-start) and models, as well as a list of CLI flags.
 
-![](assets/screen-1.jpg)
+<img src="assets/screen-1.jpg" width="500">
 
 Use "Load model" to choose from a list of `*.guff` models from your configured directory:
 
-![](assets/screen-2.jpg)
+<img src="assets/screen-2.jpg" width="500">
 
 While a running `llama.cpp/server` process is detected, the menu will show the last 5 lines of server output. Click "Stop server" to unload the model:
 
-![](assets/screen-3.jpg)
+<img src="assets/screen-3.jpg" width="500">
 
 Due to a limitation of Platypus, the menu bar icon doesn't update in the background. You need to click the icon again to get fresh logs.
 
