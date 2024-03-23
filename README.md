@@ -33,7 +33,7 @@ Create a `*.model.sh` file in your configured models directory to set server fla
 LLAMA_SERVER_MODEL_OPTIONS=(
   --model ~/path/to/guff
   --ctx-size 16384
-	--chat-template chatml
+  --chat-template chatml
 )
 ```
 

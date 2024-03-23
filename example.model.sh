@@ -3,5 +3,5 @@
 LLAMA_SERVER_MODEL_OPTIONS=(
   --model ~/path/to/guff
   --ctx-size 16384
-	--chat-template chatml
+  --chat-template chatml
 )
