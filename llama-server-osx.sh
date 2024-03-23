@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# Llama Server Menubar
+# Llama Server OSX
 #
 # A shell script, in a shell script, in a Platypus wrapper
 #
@@ -44,12 +44,24 @@ fi
 log_file="$config_dir/server.log"
 
 # Command: Select model
-if [[ $1 == *.gguf ]]; then
+if [[ "$1" == *.gguf ]]; then
   echo "$1" > "$log_file"
 
   nohup "$LLAMA_SERVER_SCRIPT" \
     "${LLAMA_SERVER_OPTIONS[@]}" \
     --model "$LLAMA_SERVER_MODELS/$1" \
+    --log-format text >> "$log_file" 2>&1 &
+
+# Command: Select configured model
+elif [[ "$1" == *.model.sh ]]; then
+  echo "$1" > "$log_file"
+
+  source "$LLAMA_SERVER_MODELS/$1"
+  echo "${LLAMA_SERVER_MODEL_OPTIONS[@]}" >> "$log_file"
+
+  nohup "$LLAMA_SERVER_SCRIPT" \
+    "${LLAMA_SERVER_OPTIONS[@]}" \
+    "${LLAMA_SERVER_MODEL_OPTIONS[@]}" \
     --log-format text >> "$log_file" 2>&1 &
 
 # Command: Stop server
@@ -75,9 +87,11 @@ if pgrep -f "$LLAMA_SERVER_SCRIPT" > /dev/null; then
 # Or not running
 else
   model_menu() {
-    for file in "$LLAMA_SERVER_MODELS"/*.gguf; do
+    shopt -s nullglob
+    for file in "$LLAMA_SERVER_MODELS"/*.{gguf,model.sh}; do
       echo "$(basename "$file")"
     done | sort -V | paste -sd "|" -
+    shopt -u nullglob
   }
 
   echo "STATUSTITLE|🦙"
