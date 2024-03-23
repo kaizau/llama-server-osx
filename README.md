@@ -14,7 +14,8 @@ Click the menu bar icon to create your configuration file (`~/.config/llamaserve
 
 <img src="assets/screen-1.jpg" width="500">
 
-Use "Load model" to choose from a list of `*.guff` models from your configured directory:
+Use "Load model" to choose from a list of `*.guff` and `*.model.sh` files from
+your configured directory:
 
 <img src="assets/screen-2.jpg" width="500">
 
@@ -23,6 +24,18 @@ While a running `llama.cpp/server` process is detected, the menu will show the l
 <img src="assets/screen-3.jpg" width="500">
 
 Due to a limitation of Platypus, the menu bar icon doesn't update in the background. You need to click the icon again to get fresh logs.
+
+## Model-Specific Overrides
+
+Create a `*.model.sh` file in your configured models directory to set server flags that only apply to that model. For example:
+
+```bash
+LLAMA_SERVER_MODEL_OPTIONS=(
+  --model ~/path/to/guff
+  --ctx-size 16384
+	--chat-template chatml
+)
+```
 
 ## Roadmap
 
