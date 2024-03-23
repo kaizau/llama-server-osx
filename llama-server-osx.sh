@@ -16,7 +16,8 @@ config_options="$config_dir/options.sh"
 if [ "$1" == "Create ~/.config/llamaserver" ]; then
   mkdir -p "$config_dir"
   app_dir=$(dirname "$(readlink -f "$0")")
-  cp "$app_dir/options.sh" "$config_options"
+  cp "$app_dir/options.sh" "$config_dir"
+  cp "$app_dir/example.model.sh" "$config_dir"
   open "$HOME/.config/llamaserver/"
   exit 0
 elif [ "$1" == "Edit ~/.config/llamaserver" ]; then
