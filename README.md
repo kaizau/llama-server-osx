@@ -26,7 +26,7 @@ Due to a limitation of Platypus, the menu bar icon doesn't update in the backgro
 
 ## Roadmap
 
-- [ ] Set per-model server settings (ex: `ctx-size`)
+- [x] Set per-model server settings (ex: `ctx-size`)
 - [ ] Cache the server script PID for better `pkill` precision
 - [ ] Find way to deliver realtime menu bar icon updates
 - [ ] Notify when server is ready
