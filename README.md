@@ -45,7 +45,7 @@ LLAMA_SERVER_MODEL_OPTIONS=(
 
 ## Sandboxing
 
-MacOS ships with an officially-deprecated, poorly-documented, yet heavily-depended-upon sandboxing utility called `sandbox-exec`. Llama Server can optional run llama.cpp with this utility for (plausibly) more security.
+MacOS ships with an officially-deprecated, poorly-documented, yet heavily-depended-upon sandboxing utility called `sandbox-exec`. Llama Server can optionally run llama.cpp with this utility for (plausibly) more security.
 
 You can use the included `example.sandbox.sb` as a starting point, and uncomment the sandbox path to enable this feature.
 
