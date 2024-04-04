@@ -1,0 +1,27 @@
+; A minimal sandbox profile that restricts file and network access, but allows
+; everything else. Remember to update your folder subpaths!
+
+(version 1)
+(allow default)
+(import "/System/Library/Sandbox/Profiles/bsd.sb")
+
+; Restrict processes
+(deny process-exec)
+(allow process-exec
+	(path "/usr/bin/nohup")
+	(subpath "/path/to/llama.cpp")
+)
+
+; Restrict file access
+(deny file-read* file-write*)
+(allow file-read*
+	(subpath "/path/to/llama.cpp")
+	(subpath "/path/to/models")
+)
+
+; Restrict network access (change port as needed)
+(deny network*)
+(allow network*
+	(local tcp "*:8080")
+	(remote tcp "localhost:*")
+)
