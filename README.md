@@ -14,6 +14,8 @@ Under the hood, this is simply a set of bash scripts wrapped in [Platypus](https
 
 Download it from Releases and drag it into your Applications directory.
 
+The app is currently unsigned, so you'll need to enable it from "System Settings > Privacy & Security".
+
 Click the menu bar icon to create your configuration file (`~/.config/llamaserver/options.sh`). This defines the locations of your [llama.cpp server script](https://github.com/ggerganov/llama.cpp/tree/master/examples/server#quick-start) and models, as well as a list of CLI flags.
 
 <img src="assets/screen-1.jpg" width="500">
