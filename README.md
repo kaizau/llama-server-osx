@@ -4,7 +4,11 @@
 
 A Mac menu bar app for controlling [llama.cpp server](https://github.com/ggerganov/llama.cpp/tree/master/examples/server).
 
-This started as a bash script, which turned into a Mac Shortcut, which thanks to [Platypus](https://github.com/sveinbjornt/Platypus), has grown-up into an Real App. But in its heart, Llama Server is still just a humble bash script calling another bash script.
+Under the hood, this is simply a set of bash scripts wrapped in [Platypus](https://github.com/sveinbjornt/Platypus). It serves as a convenient shortcut to:
+
+- Switch between models using a dropdown menu
+- Configure different server flags for different models
+- Sandbox llama.cpp with `sandbox-exec`
 
 ## Usage
 
@@ -37,9 +41,23 @@ LLAMA_SERVER_MODEL_OPTIONS=(
 )
 ```
 
+## Sandboxing
+
+MacOS ships with an officially-deprecated, poorly-documented, yet heavily-depended-upon sandboxing utility called `sandbox-exec`. Llama Server can optional run llama.cpp with this utility for (plausibly) more security.
+
+You can use the included `example.sandbox.sb` as a starting point, and uncomment the sandbox path to enable this feature.
+
+More information on `sandbox-exec`:
+
+- https://www.karltarvas.com/macos-app-sandboxing-via-sandbox-exec.html
+- https://mybyways.com/blog/run-code-in-a-macos-sandbox
+- https://reverse.put.as/wp-content/uploads/2011/09/Apple-Sandbox-Guide-v1.0.pdf
+
 ## Roadmap
 
 - [x] Set per-model server settings (ex: `ctx-size`)
+- [x] Include `sandbox-exec` script
+- [x] Support multiple model folders
 - [ ] Cache the server script PID for better `pkill` precision
 - [ ] Find way to deliver realtime menu bar icon updates
 - [ ] Notify when server is ready
